@@ -29,6 +29,16 @@ subroutine print_summary(e_,pt2_,error_,variance_,norm_,n_det_,n_occ_pattern_,n_
   print '(A)',      '-----------------------------------'
   print *, ''
 
+  print '(A)',      '-----------------------------------'
+  print '(A)',  'Printing Determinants and Coeff'
+  print '(A)',      '-----------------------------------'
+  do i = 1, min(N_det_print_wf,N_det)
+    print*,''
+    print*,'i = ',i
+    print*,'coeff = ',psi_coef(i,1)
+    call debug_det(psi_det(1,1,i),N_int)
+  print '(A)',      '-----------------------------------'
+
   write(fmt,*) '(''# ============'',', N_states_p, '(1X,''=============================''))'
   write(*,fmt)
   write(fmt,*) '(12X,', N_states_p, '(6X,A7,1X,I6,10X))'
